@@ -19,6 +19,21 @@ font-family: 'Poppins', sans-serif;
   --dark-border: var(--black-border);
   --header-text: var(--white);
   --accent: var(--purple);
+
+  /* Light mode */
+  --page-bg: var(--white);
+  --text-color: var(--black);
+  --title-1: var(--accent);
+  --project-card-bg: var(--white);
+  --project-card-text: var(--black);
+}
+
+.dark {
+  --page-bg: #252526;
+  --text-color: var(--white);
+  --title-1: var(--white);
+  --project-card-bg: var(--black);
+  --project-card-text: var(--white);
 }
 
 /* General */
@@ -27,10 +42,12 @@ html,
 body {
   font-family: 'DM Sans', sans-serif;
   letter-spacing: -0.5px;
-  color: var(--text-color);
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  background-color: var(--page-bg);
+  color: var(--text-color);
 }
 
 .container {
@@ -44,7 +61,7 @@ body {
   font-size: 60px;
   line-height: 1.3;
   text-align: center;
-  color: var(--accent);
+  color: var(--title-1);
   margin-bottom: 60px;
 }
 
@@ -53,7 +70,7 @@ body {
   font-size: 40px;
   font-weight: 700;
   line-height: 1.3;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 /* Navigation */
@@ -118,6 +135,40 @@ body {
   top: 100%;
   width: 100%;
   height: 3px;
+}
+
+/* Dark mode button */
+
+.dark-mode-btn {
+  display: flex;
+  justify-content: space-between;
+  background-color: #272727;
+  width: 51px;
+  height: 26px;
+  border-radius: 50px;
+  padding: 5px;
+  position: relative;
+}
+
+.dark-mode-btn::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 1px;
+  left: 1px;
+  border-radius: 50%;
+  background-color: var(--white);
+  position: absolute;
+  transition: all .2s ease-in;
+}
+
+.dark-mode-btn--active::before {
+  left: 26px;
+}
+
+.dark-mode-icon {
+  position: relative;
+  z-index: 9;
 }
 
 /* Header */
@@ -207,7 +258,7 @@ body {
 
 .projects__item {
   max-width: 370px;
-  background-color: var(--white);
+  background-color: var(--project-card-bg);
   box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
@@ -221,7 +272,7 @@ body {
   font-size: 24px;
   line-height: 1.3;
   padding: 15px 20px 25px;
-  color: var(--black);
+  color: var(--project-card-text);
 }
 
 /* Project-details */
@@ -260,6 +311,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.15px;
   color: var(--black);
+  background-color: var(--white);
 }
 
 .btn-outline:hover {
